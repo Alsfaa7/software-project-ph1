@@ -1,0 +1,170 @@
+/* Universal styling reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Navbar container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1a2e; /* Dark navy background */
+    padding: 15px 50px; /* Increased padding for better spacing */
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    position: sticky; /* Fixed navbar on scroll */
+    top: 0;
+    z-index: 1000; /* Ensure navbar is on top */
+}
+
+/* Logo styling */
+.navbar-logo img {
+    height: 25px; /* Adjust logo size */
+}
+
+/* Centered menu links */
+.navbar-menu {
+    display: flex;
+    gap: 30px; /* Increased gap for more spacing */
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    max-height: 50px; /* Default max height */
+    opacity: 1; /* Default opacity */
+}
+
+.navbar-menu.active {
+    max-height: 300px; /* Adjust for the dropdown when active */
+    opacity: 1; /* Fully visible */
+}
+
+.navbar-menu a {
+    color: #ffffff;
+    font-size: 1em; /* Slightly larger font */
+    font-weight: 500;
+    text-decoration: none;
+    padding: 8px 0; /* Padding for clickable area */
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar-menu a:hover {
+    color: #00aaff; /* Change color on hover */
+}
+
+/* Right-side container for icons and images */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Increased gap */
+}
+
+/* Image links styling */
+.navbar-images a img {
+    height: 50px; /* Increase the height for better visibility */
+    width: auto;
+    border-radius: 8px; /* Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow for emphasis */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+    border: 2px solid #ffffff; /* Add a white border for contrast */
+}
+
+.navbar-images a img:hover {
+    transform: scale(1.1); /* Slightly larger on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Increase shadow on hover */
+}
+
+/* Right-side icons styling */
+.navbar-icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.navbar-icons a {
+    color: #ffffff;
+    font-size: 1em; /* Slightly larger font */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.navbar-icons a:hover {
+    color: #00aaff; /* Change color on hover */
+}
+
+.navbar-icons i {
+    margin-right: 5px;
+}
+
+/* Hamburger icon styling */
+.navbar-hamburger {
+    display: none; /* Hidden by default */
+    cursor: pointer;
+    flex-direction: column; /* Stack bars vertically */
+    justify-content: space-between;
+    width: 30px; /* Width of the hamburger icon */
+    height: 20px; /* Height of the hamburger icon */
+}
+
+.bar {
+    height: 3px; /* Thickness of the bars */
+    background-color: white; /* Color of the bars */
+    transition: all 0.3s ease; /* Transition for smooth animation */
+}
+
+/* Active state for hamburger icon */
+.navbar-hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px); /* Rotate top bar */
+}
+
+.navbar-hamburger.active .bar:nth-child(2) {
+    opacity: 0; /* Hide middle bar */
+}
+
+.navbar-hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px); /* Rotate bottom bar */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-menu {
+        display: flex; /* Display flex for proper alignment */
+        flex-direction: column; /* Stack menu items vertically */
+        gap: 10px; /* Decrease gap between items */
+        max-height: 0; /* Set max height for animation */
+        overflow: hidden; /* Hide overflowing content */
+        opacity: 0; /* Hidden by default */
+        transition: max-height 0.3s ease, opacity 0.3s ease;
+    }
+
+    .navbar-menu.active {
+        max-height: 300px; /* Expand when active */
+        opacity: 1; /* Fully visible */
+    }
+
+    .navbar-hamburger {
+        display: flex; /* Show hamburger icon on small screens */
+    }
+
+    .navbar-logo img {
+        height: 20px; /* Adjust logo size for mobile */
+    }
+
+    .navbar-right {
+        flex-wrap: wrap; /* Allow icons to wrap if needed */
+        gap: 10px; /* Decrease gap for smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-logo img {
+        height: 15px; /* Further reduce logo size for mobile */
+    }
+
+    .navbar-icons a {
+        font-size: 0.9em; /* Smaller font size for icons on mobile */
+    }
+}

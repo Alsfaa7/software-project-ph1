@@ -1,0 +1,122 @@
+/* Footer main container */
+.footer {
+    background-color: #0E1621; /* Dark navy background */
+    color: #FFFFFF;
+    padding: 50px 20px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Container for the main content of the footer */
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Column styling */
+.footer > .footer-container > div {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 30px;
+}
+
+/* Headings styling */
+.footerh2 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* Text styling for contact information and general text */
+.footerinfo,
+.footer p {
+    color: #B0BEC5;
+    margin: 5px 0;
+}
+
+.footerinfo i {
+    margin-right: 8px;
+    color: #64B5F6; /* Icon color */
+}
+
+/* List styling for quick links */
+.footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer ul li {
+    margin: 5px 0;
+}
+
+.footer ul li a {
+    color: #B0BEC5;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer ul li a:hover {
+    color: #64B5F6; /* Hover color */
+}
+
+/* Footer bottom section with copyright */
+.footer-bottom {
+    background-color: #111;
+    color: #B0BEC5;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 12px;
+    margin-top: 30px;
+}
+
+.footer-bottom a {
+    color: #64B5F6;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    color: #FFFFFF;
+}
+
+/* Social media icons */
+.footer-social {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.footer-social a {
+    color: #64B5F6;
+    font-size: 18px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-social a:hover {
+    color: #FFFFFF;
+}
+
+/* Payment logos and certification section */
+.footer-logos {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.footer-logos img {
+    margin: 0 5px;
+    max-height: 30px;
+    filter: brightness(0) invert(1); /* Makes logos white on dark background */
+    transition: filter 0.3s;
+}
+
+.footer-logos img:hover {
+    filter: brightness(0.7); /* Darkens logos on hover */
+}
