@@ -1,0 +1,215 @@
+/* Reset and Basic Setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f9f9f9; /* Light gray for a softer background */
+    color: #333; /* Darker text for contrast */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #2c3e50; /* Dark blue-gray for a modern feel */
+    padding: 15px 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: background-color 0.3s ease;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1em;
+    font-weight: 500; /* Slightly bolder */
+    transition: color 0.3s, transform 0.3s; /* Add transform on hover */
+}
+
+.navbar a:hover {
+    color: #1abc9c; /* Fresh color on hover */
+    transform: scale(1.05); /* Scale effect */
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 70px 20px;
+    background: linear-gradient(135deg, #3498db, #8e44ad); /* Vibrant gradient */
+    color: white;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: left;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Deep shadow for depth */
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.hero h1 {
+    font-size: 3.5em; /* Larger headline */
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.2em; /* Increased size for emphasis */
+    margin-top: 15px;
+    color: #e0e4eb;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px; /* Increased gap for breathing room */
+    margin-top: 30px;
+}
+
+.cta-buttons a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #3498db; /* Stylish button background (blue) */
+    border-radius: 5px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background 0.3s, transform 0.3s; /* Button effects */
+}
+
+.cta-buttons a:hover {
+    background: #2980b9; /* Darker shade on hover */
+    transform: translateY(-3px); /* Lift effect */
+}
+
+/* Features Section */
+.features {
+    margin-top: 80px;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Mobile Phone Style for Feature Slideshow */
+.feature-slideshow {
+    width: 350px; /* Slightly wider */
+    height: 600px;
+    border: 10px solid #2c3e50; /* Consistent border color */
+    border-radius: 20px; /* Softer corners */
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile Notch for Border */
+.feature-slideshow::before {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 10px;
+    background: #2c3e50;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 6px;
+}
+
+/* Slideshow Images */
+.mySlides {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Show the first slide by default */
+.mySlides:first-child {
+    display: block;
+}
+
+/* Call-to-Action Section */
+.cta {
+    margin-top: 60px;
+    padding: 50px;
+    background-color: #ecf0f1; /* Light gray background */
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cta h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #3498db; /* Bright accent color */
+}
+
+.cta p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Footer */
+.footer {
+    background-color: #2c3e50; /* Consistent footer color */
+    color: white;
+    padding: 20px 0;
+    margin-top: 80px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.footer a {
+    color: #3498db; /* Footer link color */
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.footer a:hover {
+    color: #2980b9; /* Hover effect */
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 20px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature-slideshow {
+        width: 90%;
+        height: auto;
+        border-radius: 15px; /* Softer corners */
+    }
+}

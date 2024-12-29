@@ -1,0 +1,71 @@
+/* about.css */
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* Light background for contrast */
+}
+
+/* About Container */
+.about-container {
+    max-width: 800px; /* Limit the width of the content */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Add padding */
+    background: #fff; /* White background for the main section */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Header */
+h1 {
+    font-size: 2.5em;
+    color: #333; /* Darker text color */
+    text-align: center; /* Center the title */
+    margin-bottom: 20px; /* Space below title */
+}
+
+/* Paragraphs */
+.about-container p {
+    margin: 15px 0; /* Space between paragraphs */
+    color: #555; /* Slightly lighter text color for readability */
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: center; /* Center the icons */
+    margin-top: 20px; /* Space above icons */
+}
+
+.social-icons a {
+    color: #333; /* Darker color for icons */
+    font-size: 1.5em; /* Icon size */
+    margin: 0 10px; /* Space between icons */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.social-icons a:hover {
+    color: #00aaff; /* Change color on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .about-container {
+        padding: 10px; /* Reduce padding on smaller screens */
+    }
+
+    h1 {
+        font-size: 2em; /* Smaller title font size */
+    }
+
+    .about-container p {
+        margin: 10px 0; /* Reduce space between paragraphs */
+    }
+
+    .social-icons a {
+        font-size: 1.2em; /* Smaller icon size on mobile */
+    }
+}
