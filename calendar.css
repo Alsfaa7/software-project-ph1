@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F5F5F5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.calendar-container {
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+h1 {
+    color: #0E1621;
+    margin-bottom: 20px;
+}
+
+.month-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.arrow {
+    background-color: #0E1621;
+    color: #FFF;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.arrow.disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.day {
+    background-color: #EEE;
+    padding: 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.green {
+    background-color: #4CAF50; /* Green for calorie goal followed */
+    color: white;
+}
+
+.red {
+    background-color: #F44336; /* Red for calorie goal missed */
+    color: white;
+}
