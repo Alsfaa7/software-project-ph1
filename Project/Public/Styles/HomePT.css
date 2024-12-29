@@ -1,0 +1,114 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* Light background for contrast */
+}
+
+.container {
+    max-width: 800px; /* Limit the width of the content */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Add padding */
+}
+
+/* Header */
+h1 {
+    font-size: 2.5em;
+    color: #333; /* Darker text color */
+    text-align: center; /* Center the title */
+    margin-bottom: 20px; /* Space below title */
+}
+
+/* Main Content */
+.main5 {
+    background: #fff; /* White background for the main section */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 20px; /* Padding for the main content */
+}
+
+.policy-section,
+.terms-section {
+    margin-bottom: 20px; /* Space between sections */
+}
+
+.policy-section h2,
+.terms-section h2 {
+    font-size: 1.5em; /* Header font size for sections */
+    color: #007bff; /* Accent color for headers */
+    margin-bottom: 10px; /* Space below section headers */
+}
+
+.policy-section p,
+.terms-section p {
+    margin: 0; /* Remove default margin */
+    color: #555; /* Slightly lighter text color for better readability */
+    margin-bottom: 1.5rem; /* Space between paragraphs */
+}
+
+.policy-section ul,
+.terms-section ul {
+    margin: 10px 0 0 20px; /* Add margin and indent for lists */
+    list-style-type: disc; /* Bullet points for list */
+}
+
+/* Icon Container for Social Media */
+.icon-container {
+    margin-top: 2rem; /* Space above the icons */
+    text-align: center; /* Center the icons */
+}
+
+.icon-container i {
+    margin: 0 10px; /* Space between icons */
+    font-size: 1.5rem; /* Increase icon size */
+    color: #4CAF50; /* Icon color */
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.icon-container i:hover {
+    color: #333; /* Darker color on hover */
+}
+
+/* Footer */
+.footer {
+    background-color: #f8f8f8; /* Light footer background */
+    padding: 20px 0; /* Padding for the footer */
+    text-align: center; /* Center the footer text */
+}
+
+.footer a {
+    color: #007bff; /* Link color in footer */
+    text-decoration: none; /* Remove underline */
+}
+
+.footer a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px; /* Reduce padding on smaller screens */
+    }
+
+    h1 {
+        font-size: 2em; /* Smaller title font size */
+    }
+
+    .policy-section h2,
+    .terms-section h2 {
+        font-size: 1.2em; /* Smaller section header font size */
+    }
+}
+
+@media (max-width: 768px) {
+    .main5 {
+        padding: 1rem; /* Reduce padding on smaller screens */
+    }
+
+    h1 {
+        font-size: 2rem; /* Adjust heading size */
+    }
+}
