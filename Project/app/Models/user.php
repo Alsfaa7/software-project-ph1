@@ -73,7 +73,7 @@ class UserAuthentication  {
     }
 
     private function initializeSession($user) {
-        $_SESSION['user_id'] = $user['UserId'];
+        $_SESSION['id'] = $user['Id'];
         $_SESSION['username'] = $user['Username'];
         $_SESSION['userTypeId'] = $user['UserTypeId'];
     }
@@ -81,13 +81,10 @@ class UserAuthentication  {
     private function redirectUser($userTypeId) {
         switch ($userTypeId) {
             case 1:
-                $this->redirect("../app/views/indexForStudents.php");
+                $this->redirect("../app/views/admin.php");
                 break;
             case 2:
-                $this->redirect("../app/views/indexForClubsAndOrganizations.php");
-                break;
-            case 3:
-                $this->redirect("../app/views/indexForAdmin.php");
+                $this->redirect("../app/views/user.php");
                 break;
             default:
                 exit("Invalid user type.");
