@@ -2,20 +2,19 @@
 include_once "../../app/includes/dbh.inc.php"; 
 
 function calculateCalories($weight, $height) {
-    // Example formula for caloric needs
-    return (10 * $weight) + (6.25 * $height) - 5 * 25 + 5; // Modify age, gender as needed
+    return (10 * $weight) + (6.25 * $height) - 5 * 25 + 5;  // Modify for age, gender if needed
 }
 
 function calculateProtein($weight) {
-    return $weight * 2; // Protein in grams (2 grams per kg of weight)
+    return $weight * 2;  // Protein in grams (2 grams per kg of weight)
 }
 
 function calculateCarbs($calories) {
-    return ($calories * 0.5) / 4; // Carbs in grams (50% of calories from carbs)
+    return ($calories * 0.5) / 4;  // Carbs in grams (50% of calories from carbs)
 }
 
 function calculateFat($calories) {
-    return ($calories * 0.25) / 9; // Fat in grams (25% of calories from fat)
+    return ($calories * 0.25) / 9;  // Fat in grams (25% of calories from fat)
 }
 ?>
 
@@ -24,25 +23,42 @@ function calculateFat($calories) {
 <head>
     <title>Sign Up</title>
     <link rel="stylesheet" href="../../Public/Styles/signup.css"> <!-- Link to your CSS file -->
+    <script>
+        function validateForm() {
+            var weight = document.forms["signupForm"]["Weight"].value;
+            var height = document.forms["signupForm"]["Height"].value;
+            var password = document.forms["signupForm"]["Password"].value;
+            var email = document.forms["signupForm"]["Email"].value;
+
+            // Validate that weight and height are positive
+            if (weight <= 0 || height <= 0) {
+                alert("Weight and Height must be positive values.");
+                return false;
+            }
+
+            // Validate password length
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return false;
+            }
+
+            // Validate email format
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </head>
 <body>
-
-<!-- Navigation Bar -->
-<nav>
-    <div class="nav-logo">
-        <img src="../../Public/Images/logo.svg" alt="Logo" class="logo"> <!-- Adjust path if necessary -->
-    </div>
-    <ul>
-        <li><a href="Home.php">Home</a></li>
-        <li><a href="signup.php">Sign Up</a></li>
-        <li><a href="login.php">Login</a></li>
-    </ul>
-</nav>
-
+<?php include 'Components/header.php'; ?>
 <h1>Sign Up</h1>
 
 <div class="container">
-    <form action="" method="post">
+    <form name="signupForm" action="" method="post" onsubmit="return validateForm()">
         <label>First Name:</label>
         <input type="text" name="FName" required>
 
@@ -56,10 +72,10 @@ function calculateFat($calories) {
         <input type="password" name="Password" required>
 
         <label>Weight (kg):</label>
-        <input type="number" name="Weight" step="0.1" required>
+        <input type="number" name="Weight" min="0" step="0.1" required>
 
         <label>Height (cm):</label>
-        <input type="number" name="Height" step="0.1" required>
+        <input type="number" name="Height" min="0" step="0.1" required>
 
         <input type="submit" value="Submit" name="Submit">
         <input type="reset">
@@ -67,14 +83,35 @@ function calculateFat($calories) {
 </div>
 
 <?php
-// Handle form submission
+// Server-Side Validation
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Fname = htmlspecialchars($_POST["FName"]);
     $Lname = htmlspecialchars($_POST["LName"]);
     $Email = htmlspecialchars($_POST["Email"]);
-    $Password = password_hash($_POST["Password"], PASSWORD_DEFAULT);
+    $Password = $_POST["Password"];
     $Weight = floatval($_POST["Weight"]);
     $Height = floatval($_POST["Height"]);
+
+    // Validate email format
+    if (!filter_var($Email, FILTER_VALIDATE_EMAIL)) {
+        echo "Invalid email format";
+        exit();
+    }
+
+    // Check for valid Weight and Height
+    if ($Weight <= 0 || $Height <= 0) {
+        echo "Weight and Height must be positive values.";
+        exit();
+    }
+
+    // Ensure password length is sufficient (at least 6 characters)
+    if (strlen($Password) < 6) {
+        echo "Password must be at least 6 characters long.";
+        exit();
+    }
+
+    // Hash the password for security
+    $hashedPassword = password_hash($Password, PASSWORD_DEFAULT);
 
     // Calculate macros
     $calories = calculateCalories($Weight, $Height);
@@ -86,9 +123,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO users (FirstName, LastName, Email, Password, weight, height, calories, protein, carbs, fat)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssdiiiii", $Fname, $Lname, $Email, $Password, $Weight, $Height, $calories, $protein, $carbs, $fat);
+    $stmt->bind_param("ssssdiiiii", $Fname, $Lname, $Email, $hashedPassword, $Weight, $Height, $calories, $protein, $carbs, $fat);
 
-    // Execute the statement and redirect
     if ($stmt->execute()) {
         header("Location: index.php");
         exit();
