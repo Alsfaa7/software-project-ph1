@@ -12,27 +12,19 @@ session_start();
 </head>
 <body>
 
-<!-- Navigation Bar -->
-<nav>
-    <div class="nav-logo">
-        <img src="../../Public/Images/logo.svg" alt="Logo" class="logo"> <!-- Adjust path if necessary -->
-    </div>
-    <ul>
-        <li><a href="index.php">Home</a></li>
-        <li><a href="CustomerTools.php">Customer Tools</a></li>
-        <li><a href="Database.php">Database</a></li>
-        <li><a href="Aboutus.php">About Us</a></li>
-        <li><a href="ContactUs.php">Contact Us</a></li>
-    </ul>
-</nav>
+<!-- Include User Navbar -->
+<?php include 'Components/usernav.php'; ?>
 
 <main>
     <div class="container">
         <?php
-        if (!empty($_SESSION['ID'])) {
+        if (!empty($_SESSION['id'])) {
+            // Check if the session variable for user name is set
+            $firstName = isset($_SESSION['user_name']) ? htmlspecialchars($_SESSION['user_name']) : 'User';
+
             // Display options for logged-in users
-            echo "<h1>Welcome, " . htmlspecialchars($_SESSION['FName']) . "!</h1>";
-            echo "<a href='View.php' class='button'>View Profile</a>";
+            echo "<h1>Welcome, $firstName!</h1>";
+            echo "<a href='profile.php' class='button'>View Profile</a>";
             echo "<a href='Edit.php' class='button'>Edit Profile</a>";
             echo "<a href='delete_account.php' class='button'>Delete Account</a>";
             echo "<a href='logout.php' class='button'>Sign Out Here</a>";
